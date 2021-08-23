@@ -1,0 +1,12 @@
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.deps.json
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.dll
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/bin/Debug/net5.0/ref/Blackjack.dll
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.pdb
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.csproj.AssemblyReference.cache
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.AssemblyInfoInputs.cache
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.AssemblyInfo.cs
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.csproj.CoreCompileInputs.cache
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.dll
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/ref/Blackjack.dll
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.pdb

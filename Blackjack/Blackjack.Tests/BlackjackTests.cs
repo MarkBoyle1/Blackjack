@@ -5,10 +5,12 @@ namespace Blackjack.Tests
 {
     public class UnitTest1
     {
+        public BlackJackGameplay game = new BlackJackGameplay();
+
         [Fact]
         public void given_userScoreEquals21_and_dealerScoreEquals19_when_DecideWinner_then_return_YouBeatTheDealer()
         {
-            BlackJackGameplay game = new BlackJackGameplay();
+            
             int userScore = 21;
             int dealerScore = 19;
 
@@ -22,7 +24,6 @@ namespace Blackjack.Tests
         [Fact]
         public void given_userScoreEquals17_and_dealerScoreEquals19_when_DecideWinner_then_return_DealerWins()
         {
-            BlackJackGameplay game = new BlackJackGameplay();
             int userScore = 17;
             int dealerScore = 19;
 
@@ -31,6 +32,19 @@ namespace Blackjack.Tests
             string expectedResult = "Dealer wins!";
 
             Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+
+        public void given_userHandContains10And8_when_CalculateHand_then_return_18()
+        {
+            
+            List<Card> userHand = new List<Card>();
+            userHand[0] = new Card(10, "Diamond");
+            userHand[1] = new Card(8, "Heart"); 
+            int userScore = game.CalculateHand(userHand);
+
+            Assert.Equal(18, userScore);
         }
     }
 }
