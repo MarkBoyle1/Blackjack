@@ -26,6 +26,7 @@ namespace Blackjack
               return "Tied game!";
           }
       }
+      
 
       public void StartGame()
       {
@@ -34,17 +35,12 @@ namespace Blackjack
           userHand.Add(deck.dealCard());
           dealerHand.Add(deck.dealCard());
           dealerHand.Add(deck.dealCard());
-          
+          userHand = userInput.DecideAction(userHand, deck);
           userScore = CalculateHand(userHand);
 
-
+          
           dealerScore = CalculateHand(dealerHand);
           Console.WriteLine(DecideWinner(userScore, dealerScore));
-      }
-
-      public void ShowHand()
-      {
-          Console.WriteLine(userHand.Count); 
       }
 
       public int CalculateHand(List<Card> hand)

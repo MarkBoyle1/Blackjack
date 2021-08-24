@@ -21,7 +21,7 @@ namespace Blackjack
        public Card dealCard()
        {
            Random random = new Random();
-           int index = random.Next(0, deckOfCards.Count);
+           int index = random.Next(0, deckOfCards.Count - 1);
            Card card = deckOfCards[index];
            deckOfCards.RemoveAt(index);
            return card;
