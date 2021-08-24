@@ -7,9 +7,11 @@ namespace Blackjack
     {
         public int userScore;
         public int dealerScore;
-        public List<Card> userHand;
-        public List<Card> dealerHand;
-
+        public List<Card> userHand = new List<Card>();
+        public List<Card> dealerHand = new List<Card>();
+        public Input userInput = new Input();
+        public Deck deck = new Deck();
+            
       public string DecideWinner(int userScore, int dealerScore)
       {
           if(userScore <= 21 && userScore > dealerScore)
@@ -23,6 +25,26 @@ namespace Blackjack
           else{
               return "Tied game!";
           }
+      }
+
+      public void StartGame()
+      {
+          deck.CreateDeck();
+          userHand.Add(deck.dealCard());
+          userHand.Add(deck.dealCard());
+          dealerHand.Add(deck.dealCard());
+          dealerHand.Add(deck.dealCard());
+          
+          userScore = CalculateHand(userHand);
+
+
+          dealerScore = CalculateHand(dealerHand);
+          Console.WriteLine(DecideWinner(userScore, dealerScore));
+      }
+
+      public void ShowHand()
+      {
+          Console.WriteLine(userHand.Count); 
       }
 
       public int CalculateHand(List<Card> hand)

@@ -8,11 +8,7 @@ namespace Blackjack
         static void Main(string[] args)
         {
             BlackjackGameplay game = new BlackjackGameplay();
-            game.DecideWinner(21, 19);
-
-            Deck deck = new Deck();
-            deck.CreateDeck();
-            deck.dealCard();
+            game.StartGame();
         }
     }
 }
