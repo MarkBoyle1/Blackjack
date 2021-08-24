@@ -3,8 +3,13 @@ using System.Collections.Generic;
 
 namespace Blackjack
 {
-    public class BlackJackGameplay
+    public class BlackjackGameplay
     {
+        public int userScore;
+        public int dealerScore;
+        public List<Card> userHand;
+        public List<Card> dealerHand;
+
       public string DecideWinner(int userScore, int dealerScore)
       {
           if(userScore <= 21 && userScore > dealerScore)

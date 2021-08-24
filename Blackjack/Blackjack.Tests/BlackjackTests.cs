@@ -6,7 +6,9 @@ namespace Blackjack.Tests
 {
     public class UnitTest1
     {
-        public BlackJackGameplay game = new BlackJackGameplay();
+        public BlackjackGameplay game = new BlackjackGameplay();
+        public List<Card> userHand = new List<Card>();
+        public List<Card> dealerHand = new List<Card>();
 
         [Fact]
         public void given_userScoreEquals21_and_dealerScoreEquals19_when_DecideWinner_then_return_YouBeatTheDealer()
@@ -36,16 +38,34 @@ namespace Blackjack.Tests
         }
 
         [Fact]
-
-        public void given_userHandContains10And8_when_CalculateHand_then_return_18()
+        public void given_userHandEquals9and8_and_dealerHandEquals10and9_when_DecideWinner_then_return_DealerWins()
         {
             
-            List<Card> userHand = new List<Card>();
-            userHand.Add(new Card(10, "Diamond"));
+            userHand.Add(new Card(9, "Diamond"));
             userHand.Add(new Card(8, "Heart")); 
-            int userScore = game.CalculateHand(userHand);
+            
+            dealerHand.Add(new Card(10, "Club"));
+            dealerHand.Add(new Card(9, "Heart")); 
 
-            Assert.Equal(18, userScore);
+            int userScore = game.CalculateHand(userHand);
+            int dealerScore = game.CalculateHand(dealerHand);
+
+            string result = game.DecideWinner(userScore, dealerScore);
+
+            string expectedResult = "Dealer wins!";
+
+            Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void when_dealCard_then_userHandIncreasesBy1()
+        {
+            Deck deck = new Deck();
+            int expectedLength = (userHand.Count + 1);
+            userHand.Add(deck.dealCard());
+            int actualLength = userHand.Count;
+
+            Assert.Equal(expectedLength, actualLength);
+        }        
     }
 }
