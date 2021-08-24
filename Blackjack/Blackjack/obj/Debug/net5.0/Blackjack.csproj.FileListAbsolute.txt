@@ -10,3 +10,6 @@
 /Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.dll
 /Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/ref/Blackjack.dll
 /Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.pdb
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.runtimeconfig.json
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/bin/Debug/net5.0/Blackjack.runtimeconfig.dev.json
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack/obj/Debug/net5.0/Blackjack.genruntimeconfig.cache

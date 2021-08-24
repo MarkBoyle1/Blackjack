@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Blackjack
 {
@@ -19,9 +20,14 @@ namespace Blackjack
           }
       }
 
-      public int CalculateHand(List userHand)
+      public int CalculateHand(List<Card> hand)
       {
-          
+          int score = 0;
+          foreach(Card card in hand)
+          {
+            score += card.cardNumber;
+          }
+          return score;
       }
     }
 }

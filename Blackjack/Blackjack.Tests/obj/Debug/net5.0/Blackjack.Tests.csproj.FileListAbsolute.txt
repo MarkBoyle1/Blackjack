@@ -100,3 +100,6 @@
 /Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack.Tests/obj/Debug/net5.0/ref/Blackjack.Tests.dll
 /Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack.Tests/obj/Debug/net5.0/Blackjack.Tests.pdb
 /Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack.Tests/obj/Debug/net5.0/Blackjack.Tests.genruntimeconfig.cache
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack.Tests/bin/Debug/net5.0/Blackjack.deps.json
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack.Tests/bin/Debug/net5.0/Blackjack.runtimeconfig.json
+/Users/Mark.Boyle/Desktop/c#/katas/Blackjack/Blackjack/Blackjack.Tests/bin/Debug/net5.0/Blackjack.runtimeconfig.dev.json

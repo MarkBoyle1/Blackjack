@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Blackjack.Tests
@@ -40,8 +41,8 @@ namespace Blackjack.Tests
         {
             
             List<Card> userHand = new List<Card>();
-            userHand[0] = new Card(10, "Diamond");
-            userHand[1] = new Card(8, "Heart"); 
+            userHand.Add(new Card(10, "Diamond"));
+            userHand.Add(new Card(8, "Heart")); 
             int userScore = game.CalculateHand(userHand);
 
             Assert.Equal(18, userScore);
