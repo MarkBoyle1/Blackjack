@@ -7,7 +7,7 @@ namespace Blackjack
     {
         static void Main(string[] args)
         {
-            BlackjackGameplay game = new BlackjackGameplay();
+            BlackjackGameplay game = new BlackjackGameplay(new Input());
             game.StartGame();
         }
     }
