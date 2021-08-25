@@ -31,14 +31,33 @@ namespace Blackjack
            Console.Write("with the hand");
            foreach(Card card in userHand)
            {
-               Console.Write("[{0} {1}]", card.cardNumber, card.cardSuit);
+               string cardType = AdjustToCorrectCardType(card.cardNumber);
+               Console.Write("[{0} {1}]", cardType, card.cardSuit);
            }
            Console.WriteLine();
        }
 
+       public string AdjustToCorrectCardType(int cardNumber)
+       {
+           switch(cardNumber)
+           {
+               case 1:
+                    return "Ace";
+               case 13:
+                    return "King";
+                case 12:
+                    return "Queen";
+                case 11:
+                    return "Jack";
+                default:
+                    return cardNumber.ToString();
+           }
+       }
+
        public void DisplayNewCard(Card newCard)
        {
-           Console.WriteLine("You draw a [{0} {1}]", newCard.cardNumber, newCard.cardSuit);
+           string cardType = AdjustToCorrectCardType(newCard.cardNumber);
+           Console.WriteLine("You draw a [{0} {1}]", cardType, newCard.cardSuit);
        }
     }
 }
