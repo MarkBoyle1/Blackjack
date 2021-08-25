@@ -10,31 +10,32 @@ namespace Blackjack
            Console.WriteLine("Busted!");
        }
 
-       public void WinMessage()
+       public void ResultMessage(string result)
        {
-           Console.WriteLine("You beat the dealer!");
+           switch(result)
+           {
+               case "win":
+                    Console.WriteLine("You beat the dealer!");
+                    break;
+               case "lose":
+                    Console.WriteLine("Dealer Won!");
+                    break;
+                default:
+                    Console.WriteLine("Tied Game!");
+                    break;
+           }
        }
 
-       public void LoseMessage()
+       public void DisplayStatus(int userScore, List<Card> userHand, string player)
        {
-           Console.WriteLine("Dealer Won!");
-       }
-
-       public void TieMessage()
-       {
-           Console.WriteLine("Tied Game!");
-       }
-
-       public void DisplayStatus(int userScore, List<Card> userHand)
-       {
-           Console.WriteLine("You are currently at {0}", userScore);
+           Console.WriteLine("{0} currently at {1}", player, userScore);
            Console.Write("with the hand");
            foreach(Card card in userHand)
            {
                string cardType = AdjustToCorrectCardType(card.cardNumber);
                Console.Write("[{0} {1}]", cardType, card.cardSuit);
            }
-           Console.WriteLine();
+           Console.WriteLine("\n");
        }
 
        public string AdjustToCorrectCardType(int cardNumber)
@@ -54,10 +55,10 @@ namespace Blackjack
            }
        }
 
-       public void DisplayNewCard(Card newCard)
+       public void DisplayNewCard(Card newCard, string player)
        {
            string cardType = AdjustToCorrectCardType(newCard.cardNumber);
-           Console.WriteLine("You draw a [{0} {1}]", cardType, newCard.cardSuit);
+           Console.WriteLine("{0} a [{1} {2}]\n", player, cardType, newCard.cardSuit);
        }
     }
 }

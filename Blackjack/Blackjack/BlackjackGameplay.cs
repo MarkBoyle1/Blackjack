@@ -22,16 +22,16 @@ namespace Blackjack
       {
           if(userScore <= 21 && userScore > dealerScore)
           {
-              output.WinMessage();
+              output.ResultMessage("win");
               return "You beat the dealer!";
           }
           else if(dealerScore <= 21 && dealerScore > userScore)
           {
-              output.LoseMessage();
+              output.ResultMessage("lose");
               return "Dealer wins!";
           }
           else{
-              output.TieMessage();
+              output.ResultMessage("tie");
               return "Tied game!";
           }
       }
@@ -41,6 +41,7 @@ namespace Blackjack
           SetUpGame();
           userHand = UserAction();
           userScore = CalculateHand(userHand);
+          dealerHand = DealerAction(dealerHand, deck, userScore);
           dealerScore = CalculateHand(dealerHand);
           DecideWinner(userScore, dealerScore);
       }
@@ -94,13 +95,13 @@ namespace Blackjack
           bool inPlay = true;
            while(inPlay)
            {
-               output.DisplayStatus(CalculateHand(userHand), userHand);
+               output.DisplayStatus(CalculateHand(userHand), userHand, "You are");
                 string decision = userInput.DecideAction();
                 if(decision == "1")
                 {
                     Card newCard = deck.dealCard();
                     userHand.Add(newCard);
-                    output.DisplayNewCard(newCard);
+                    output.DisplayNewCard(newCard, "You draw");
                     
                     if(CalculateHand(userHand) == 0)
                     {
@@ -118,6 +119,28 @@ namespace Blackjack
                 }
            }
            return userHand;
+      }
+
+      public List<Card> DealerAction(List<Card> dealerHand, Deck deck, int userScore)
+      {
+          while(DealerInPlay(dealerHand, userScore))
+          {
+              output.DisplayStatus(CalculateHand(dealerHand), dealerHand, "Dealer is");
+              Card newCard = deck.dealCard();
+                dealerHand.Add(newCard);
+                output.DisplayNewCard(newCard, "Dealer draws");
+          } 
+          return dealerHand;
+      }
+
+      public bool DealerInPlay(List<Card> dealerHand, int userScore)
+      {
+          dealerScore = CalculateHand(dealerHand);
+          if(dealerScore == 0 || dealerScore > 21 || (dealerScore > 17 && dealerScore > userScore))
+          {
+              return false;
+          }
+          return true;
       }
     }
 }
