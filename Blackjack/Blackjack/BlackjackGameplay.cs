@@ -59,7 +59,8 @@ namespace Blackjack
           int score = 0;
           foreach(Card card in hand)
           {
-            score += card.cardNumber;
+            int cardNumber = AdjustCardNumber(card.cardNumber);
+            score += cardNumber;
           }
           if(score > 21)
           {
@@ -68,15 +69,30 @@ namespace Blackjack
           return score;
       }
 
+      public int AdjustCardNumber(int cardNumber)
+      {
+          if(cardNumber > 10)   //Ace equals 1
+          {
+              return 10;
+          }
+          else
+          {
+              return cardNumber;
+          }
+      }
+
       public List<Card> UserAction()
       {
           bool inPlay = true;
            while(inPlay)
            {
+               output.DisplayStatus(CalculateHand(userHand), userHand);
                 string decision = userInput.DecideAction();
                 if(decision == "1")
                 {
-                    userHand.Add(deck.dealCard());
+                    Card newCard = deck.dealCard();
+                    userHand.Add(newCard);
+                    output.DisplayNewCard(newCard);
                     
                     if(CalculateHand(userHand) == 0)
                     {
