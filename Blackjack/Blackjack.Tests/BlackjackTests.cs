@@ -12,6 +12,7 @@ namespace Blackjack.Tests
         public Deck deck = new Deck();
         public Calculator calculator = new Calculator();
         public User user = new User();
+        public Dealer dealer = new Dealer();
 
         [Fact]
         public void given_userScoreEquals21_and_dealerScoreEquals19_when_DecideWinner_then_return_YouBeatTheDealer()
@@ -169,7 +170,7 @@ namespace Blackjack.Tests
 
             int userScore = 0;
             
-            dealerHand = game.DealerAction(dealerHand, deck, userScore);
+            dealerHand = dealer.DealerAction(dealerHand, deck, userScore);
             
             Assert.True(dealerHand.Count > 2);
         }   
@@ -183,7 +184,7 @@ namespace Blackjack.Tests
             dealerHand.Add(new Card(7, "Diamond"));
             int userScore = 19;
 
-            dealerHand = game.DealerAction(dealerHand, deck, userScore);
+            dealerHand = dealer.DealerAction(dealerHand, deck, userScore);
             
             Assert.True(dealerHand.Count == 3);
         } 

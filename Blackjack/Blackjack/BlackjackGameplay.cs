@@ -14,6 +14,7 @@ namespace Blackjack
         public Output output = new Output(); 
         public Calculator calculator = new Calculator();
         public User user = new User();
+        public Dealer dealer = new Dealer();
 
         public BlackjackGameplay(IUserInput userInput)
         {
@@ -27,7 +28,7 @@ namespace Blackjack
               output.ResultMessage("win");
               return "You beat the dealer!";
           }
-          else if(dealerScore <= 21 && dealerScore > userScore)
+          else if((dealerScore <= 21 && dealerScore > userScore) || userScore == 0)
           {
               output.ResultMessage("lose");
               return "Dealer wins!";
@@ -44,7 +45,7 @@ namespace Blackjack
           SetUpGame();
           userHand = user.UserAction(userHand, deck, userInput);
           userScore = calculator.CalculateHand(userHand);
-          dealerHand = DealerAction(dealerHand, deck, userScore);
+          dealerHand = dealer.DealerAction(dealerHand, deck, userScore);
           dealerScore = calculator.CalculateHand(dealerHand);
           DecideWinner(userScore, dealerScore);
       }
@@ -56,28 +57,6 @@ namespace Blackjack
           userHand.Add(deck.dealCard());
           dealerHand.Add(deck.dealCard());
           dealerHand.Add(deck.dealCard());
-      }
-
-      public List<Card> DealerAction(List<Card> dealerHand, Deck deck, int userScore)
-      {
-          while(DealerInPlay(dealerHand, userScore))
-          {
-              output.DisplayStatus(calculator.CalculateHand(dealerHand), dealerHand, "Dealer is");
-              Card newCard = deck.dealCard();
-                dealerHand.Add(newCard);
-                output.DisplayNewCard(newCard, "Dealer draws");
-          } 
-          return dealerHand;
-      }
-
-      public bool DealerInPlay(List<Card> dealerHand, int userScore)
-      {
-          dealerScore = calculator.CalculateHand(dealerHand);
-          if(dealerScore == 0 || dealerScore > 21 || (dealerScore > 17 && dealerScore > userScore))
-          {
-              return false;
-          }
-          return true;
       }
     }
 }
