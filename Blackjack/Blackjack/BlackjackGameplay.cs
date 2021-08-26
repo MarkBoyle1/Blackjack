@@ -45,7 +45,7 @@ namespace Blackjack
           SetUpGame();
           userHand = user.UserAction(userHand, deck, userInput);
           userScore = calculator.CalculateHand(userHand);
-          dealerHand = dealer.DealerAction(dealerHand, deck, userScore);
+          if(userScore != 0) dealerHand = dealer.DealerAction(dealerHand, deck, userScore);
           dealerScore = calculator.CalculateHand(dealerHand);
           DecideWinner(userScore, dealerScore);
       }
