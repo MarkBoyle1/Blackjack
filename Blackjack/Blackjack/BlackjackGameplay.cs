@@ -28,7 +28,7 @@ namespace Blackjack
               output.ResultMessage("win");
               return "You beat the dealer!";
           }
-          else if((dealerScore <= 21 && dealerScore > userScore) || userScore == 0)
+          else if(dealerScore <= 21 && dealerScore > userScore)
           {
               output.ResultMessage("lose");
               return "Dealer wins!";

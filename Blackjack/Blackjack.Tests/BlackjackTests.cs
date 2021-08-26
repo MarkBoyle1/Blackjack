@@ -40,11 +40,11 @@ namespace Blackjack.Tests
         public void given_userHandEquals9and8_and_dealerHandEquals10and9_when_DecideWinner_then_return_DealerWins()
         {
             
-            userHand.Add(new Card(9, "Diamond"));
-            userHand.Add(new Card(8, "Heart")); 
+            userHand.Add(new Card(9, (Deck.Suits)1));
+            userHand.Add(new Card(8, (Deck.Suits)3)); 
             
-            dealerHand.Add(new Card(10, "Club"));
-            dealerHand.Add(new Card(9, "Heart")); 
+            dealerHand.Add(new Card(10, (Deck.Suits)1));
+            dealerHand.Add(new Card(9, (Deck.Suits)0)); 
 
             int userScore = calculator.CalculateHand(userHand);
             int dealerScore = calculator.CalculateHand(dealerHand);
@@ -125,10 +125,10 @@ namespace Blackjack.Tests
         [Fact]
         public void given_userHandScoreIsGreaterThan21_when_CalculateHand_then_return_0()
         {
-            userHand.Add(new Card(7, "Club"));
-            userHand.Add(new Card(8, "Heart"));
-            userHand.Add(new Card(4, "Diamond"));
-            userHand.Add(new Card(3, "Heart"));
+            userHand.Add(new Card(7, (Deck.Suits)3));
+            userHand.Add(new Card(8, (Deck.Suits)1));
+            userHand.Add(new Card(4, (Deck.Suits)0));
+            userHand.Add(new Card(3, (Deck.Suits)2));
 
             Assert.Equal(0, calculator.CalculateHand(userHand));
         }  
@@ -136,8 +136,8 @@ namespace Blackjack.Tests
         [Fact]
         public void given_userHandEquals12And13_when_CalculateHand_then_return_20()
         {
-            userHand.Add(new Card(12, "Club"));
-            userHand.Add(new Card(13, "Heart"));
+            userHand.Add(new Card(12, (Deck.Suits)3));
+            userHand.Add(new Card(13, (Deck.Suits)2));
             
             Assert.Equal(20, calculator.CalculateHand(userHand));
         }      
@@ -145,8 +145,8 @@ namespace Blackjack.Tests
         [Fact]
         public void given_userHandEquals1And7_when_CalculateHand_then_return_18()
         {
-            userHand.Add(new Card(1, "Club"));
-            userHand.Add(new Card(7, "Heart"));
+            userHand.Add(new Card(1, (Deck.Suits)0));
+            userHand.Add(new Card(7, (Deck.Suits)2));
             
             Assert.Equal(18, calculator.CalculateHand(userHand));
         }       
@@ -154,9 +154,9 @@ namespace Blackjack.Tests
         [Fact]
         public void given_userHandEquals1And7And9_when_CalculateHand_then_return_17()
         {
-            userHand.Add(new Card(1, "Club"));
-            userHand.Add(new Card(7, "Heart"));
-            userHand.Add(new Card(9, "Diamond"));
+            userHand.Add(new Card(1, (Deck.Suits)1));
+            userHand.Add(new Card(7, (Deck.Suits)3));
+            userHand.Add(new Card(9, (Deck.Suits)0));
             
             Assert.Equal(17, calculator.CalculateHand(userHand));
         }   
@@ -165,8 +165,8 @@ namespace Blackjack.Tests
         public void given_dealerHandEquals6And7_when_DealerAction_then_dealerHandCountIncreases()
         {
             deck.CreateDeck();
-            dealerHand.Add(new Card(6, "Club"));
-            dealerHand.Add(new Card(7, "Heart"));
+            dealerHand.Add(new Card(6, (Deck.Suits)1));
+            dealerHand.Add(new Card(7, (Deck.Suits)0));
 
             int userScore = 0;
             
@@ -179,9 +179,9 @@ namespace Blackjack.Tests
         public void given_dealerHandScoreEquals20_and_userScoreEquals19_when_DealerAction_then_dealerHandCountRemainsTheSame()
         {
             deck.CreateDeck();
-            dealerHand.Add(new Card(6, "Club"));
-            dealerHand.Add(new Card(7, "Heart"));
-            dealerHand.Add(new Card(7, "Diamond"));
+            dealerHand.Add(new Card(6, (Deck.Suits)3));
+            dealerHand.Add(new Card(7, (Deck.Suits)1));
+            dealerHand.Add(new Card(7, (Deck.Suits)0));
             int userScore = 19;
 
             dealerHand = dealer.DealerAction(dealerHand, deck, userScore);
