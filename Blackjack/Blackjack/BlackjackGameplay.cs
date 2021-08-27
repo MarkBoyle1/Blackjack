@@ -20,39 +20,18 @@ namespace Blackjack
         {
             this.userInput = userInput;
         }
-            
-    //   public string DecideWinner(int userScore, int dealerScore)
-    //   {
-    //       if(userScore <= 21 && userScore > dealerScore)
-    //       {
-    //           output.ResultMessage("win");
-    //           return "You beat the dealer!";
-    //       }
-    //       else if(dealerScore <= 21 && dealerScore > userScore)
-    //       {
-    //           output.ResultMessage("lose");
-    //           return "Dealer wins!";
-    //       }
-    //       else{
-    //           output.ResultMessage("tie");
-    //           return "Tied game!";
-    //       }
-    //   }
 
     public int DecideWinner(int userScore, int dealerScore)
       {
           if(userScore <= 21 && userScore > dealerScore)
           {
-            //   output.ResultMessage("win");
               return 1;
           }
           else if(dealerScore <= 21 && dealerScore > userScore)
           {
-            //   output.ResultMessage("lose");
               return 2;
           }
           else{
-            //   output.ResultMessage("tie");
               return 3;
           }
       }

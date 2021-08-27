@@ -12,13 +12,13 @@ namespace Blackjack
           bool inPlay = true;
            while(inPlay)
            {
-               output.DisplayStatus(calculator.CalculateHand(userHand), userHand, "You are");
+               output.DisplayStatus(calculator.CalculateHand(userHand), userHand, 2);
                 string decision = userInput.DecideAction();
                 if(decision == "1")
                 {
                     Card newCard = deck.dealCard();
                     userHand.Add(newCard);
-                    output.DisplayNewCard(newCard, "You draw");
+                    output.DisplayNewCard(newCard, 1,3);
                     
                     if(calculator.CalculateHand(userHand) == 0)
                     {
@@ -32,7 +32,7 @@ namespace Blackjack
                 }
                 else
                 {
-                    Console.WriteLine("Invaild response. Please enter 1 or 0");
+                    output.InvalidInputMessage();
                 }
            }
            return userHand;

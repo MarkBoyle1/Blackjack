@@ -11,22 +11,11 @@ namespace Blackjack
             bool containsAce = false;
             foreach(Card card in hand)
             {
-                if(card.cardNumber == 1)
-                {
-                    containsAce = true;
-                } 
+                if(card.cardNumber == 1) containsAce = true;
                 score += AdjustCardNumber(card.cardNumber);
             }
-
-            if(containsAce)
-            {
-                score = DecideValueOfAce(score);
-            }
-
-            if(score > 21)
-            {
-                score = 0;
-            }
+            if(containsAce) score = DecideValueOfAce(score);
+            if(score > 21) score = 0;
             return score;
         }
 
@@ -39,5 +28,5 @@ namespace Blackjack
         {
             return score < 12 ? score += 10 : score;
         }
-        }
+    }
 }

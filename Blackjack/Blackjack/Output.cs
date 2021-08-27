@@ -5,6 +5,20 @@ namespace Blackjack
 {
     public class Output
     {
+        enum CardName
+        {
+            Ace = 1, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
+        }
+
+        enum ConsoleOutput
+        {
+            You = 1,
+            Your,
+            draw,
+            Dealer,
+            draws
+        }
+
        public void BustedMessage()
        {
            Console.WriteLine("Busted!");
@@ -26,39 +40,25 @@ namespace Blackjack
            }
        }
 
-       public void DisplayStatus(int userScore, List<Card> userHand, string player)
+       public void DisplayStatus(int userScore, List<Card> userHand, int player)
        {
-           Console.WriteLine("{0} currently at {1}", player, userScore);
+           Console.WriteLine("{0} score is currently at {1}", (ConsoleOutput)player, userScore);
            Console.Write("with the hand ");
            foreach(Card card in userHand)
            {
-               string cardType = AdjustToCorrectCardType(card.cardNumber);
-               Console.Write("[{0} {1}] ", cardType, card.cardSuit);
+               Console.Write("[{0} {1}] ", (CardName)card.cardNumber, card.cardSuit);
            }
            Console.WriteLine("\n");
        }
 
-       private string AdjustToCorrectCardType(int cardNumber)
+       public void DisplayNewCard(Card newCard, int player, int verb)
        {
-           switch(cardNumber)
-           {
-               case 1:
-                    return "Ace";
-               case 13:
-                    return "King";
-                case 12:
-                    return "Queen";
-                case 11:
-                    return "Jack";
-                default:
-                    return cardNumber.ToString();
-           }
+           Console.WriteLine("{0} {1} a [{2} {3}]\n", (ConsoleOutput)player, (ConsoleOutput)verb, (CardName)newCard.cardNumber, newCard.cardSuit);
        }
 
-       public void DisplayNewCard(Card newCard, string player)
+       public void InvalidInputMessage()
        {
-           string cardType = AdjustToCorrectCardType(newCard.cardNumber);
-           Console.WriteLine("{0} a [{1} {2}]\n", player, cardType, newCard.cardSuit);
+           Console.WriteLine("Invaild response. Please enter 1 or 0");
        }
     }
 }
