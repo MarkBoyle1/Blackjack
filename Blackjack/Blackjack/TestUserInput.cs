@@ -5,7 +5,7 @@ namespace Blackjack
 {
     public class TestUserInput : IUserInput
     {
-        public string testInput;
+        private string testInput;
         public TestUserInput(string testInput)
         {
             this.testInput = testInput;

@@ -5,8 +5,8 @@ namespace Blackjack
 {
     public class User
     {
-        public Calculator calculator = new Calculator();
-        public Output output = new Output();
+        private Calculator calculator = new Calculator();
+        private Output output = new Output();
        public List<Card> UserAction(List<Card> userHand, Deck deck, IUserInput userInput)
       {
           bool inPlay = true;

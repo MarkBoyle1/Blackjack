@@ -10,14 +10,14 @@ namespace Blackjack
            Console.WriteLine("Busted!");
        }
 
-       public void ResultMessage(string result)
+       public void ResultMessage(int result)
        {
            switch(result)
            {
-               case "win":
+               case 1:
                     Console.WriteLine("You beat the dealer!");
                     break;
-               case "lose":
+               case 2:
                     Console.WriteLine("Dealer Won!");
                     break;
                 default:
@@ -29,16 +29,16 @@ namespace Blackjack
        public void DisplayStatus(int userScore, List<Card> userHand, string player)
        {
            Console.WriteLine("{0} currently at {1}", player, userScore);
-           Console.Write("with the hand");
+           Console.Write("with the hand ");
            foreach(Card card in userHand)
            {
                string cardType = AdjustToCorrectCardType(card.cardNumber);
-               Console.Write("[{0} {1}]", cardType, card.cardSuit);
+               Console.Write("[{0} {1}] ", cardType, card.cardSuit);
            }
            Console.WriteLine("\n");
        }
 
-       public string AdjustToCorrectCardType(int cardNumber)
+       private string AdjustToCorrectCardType(int cardNumber)
        {
            switch(cardNumber)
            {

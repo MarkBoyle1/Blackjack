@@ -30,12 +30,12 @@ namespace Blackjack
             return score;
         }
 
-        public int AdjustCardNumber(int cardNumber)
+        private int AdjustCardNumber(int cardNumber)
         {
             return cardNumber > 10 ? 10 : cardNumber;   //Ace equals 1
         }
 
-        public int DecideValueOfAce(int score)
+        private int DecideValueOfAce(int score)
         {
             return score < 12 ? score += 10 : score;
         }
