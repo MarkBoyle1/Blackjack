@@ -19,12 +19,8 @@ namespace Blackjack
                     Card newCard = deck.dealCard();
                     userHand.Add(newCard);
                     output.DisplayNewCard(newCard, 1,3);
-                    
-                    if(calculator.CalculateHand(userHand) == 0)
-                    {
-                        output.BustedMessage();
-                        inPlay = false;
-                    }
+                    inPlay = !calculator.CheckForBust(userHand);
+                    if(!inPlay) output.BustedMessage();
                 } 
                 else if(decision == "0")
                 {

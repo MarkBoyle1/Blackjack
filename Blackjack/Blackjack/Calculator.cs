@@ -5,6 +5,8 @@ namespace Blackjack
 {
     public class Calculator
     {
+
+        public int blackjackValue = 21;
         public int CalculateHand(List<Card> hand)
         {
             int score = 0;
@@ -15,7 +17,7 @@ namespace Blackjack
                 score += AdjustCardNumber(card.cardNumber);
             }
             if(containsAce) score = DecideValueOfAce(score);
-            if(score > 21) score = 0;
+            if(score > blackjackValue) score = 0;
             return score;
         }
 
@@ -26,7 +28,32 @@ namespace Blackjack
 
         private int DecideValueOfAce(int score)
         {
-            return score < 12 ? score += 10 : score;
+            return score < (blackjackValue - 9) ? score += 10 : score;
+        }
+
+        public bool CheckForBust(List<Card> userHand)
+        {
+            return CalculateHand(userHand) == 0;
+        }
+
+        public int CalculateWinner(int userScore, int dealerScore)
+        {
+            if(CheckForWin(userScore, dealerScore))
+            {
+                return 1;
+            }
+            else if(CheckForWin(dealerScore, userScore))
+            {
+                return 2;
+            }
+            else
+            {
+                return 3;
+            }
+        }
+        private bool CheckForWin(int playerScore, int opponentScore)
+        {
+            return (playerScore <= blackjackValue && playerScore > opponentScore);
         }
     }
 }

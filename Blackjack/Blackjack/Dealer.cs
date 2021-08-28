@@ -22,11 +22,7 @@ namespace Blackjack
         private bool IsDealerInPlay(List<Card> dealerHand, int userScore)
         {
             int dealerScore = calculator.CalculateHand(dealerHand);
-            if(dealerScore == 0 || dealerScore >= 21 || (dealerScore > 17 && dealerScore > userScore))
-            {
-                return false;
-            }
-            return true;
+            return !(dealerScore == 0 || dealerScore >= calculator.blackjackValue || (dealerScore > 17 && dealerScore > userScore));
         }
     }
 }
