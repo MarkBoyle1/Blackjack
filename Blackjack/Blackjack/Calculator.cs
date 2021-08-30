@@ -6,7 +6,7 @@ namespace Blackjack
     public class Calculator
     {
 
-        public int blackjackValue = 21;
+        public readonly int blackjackValue = 21;
         public int CalculateHand(List<Card> hand)
         {
             int score = 0;

@@ -5,16 +5,16 @@ namespace Blackjack
 {
     public class BlackjackGameplay
     {
-        public int userScore;
-        public int dealerScore;
+        private int userScore;
+        private int dealerScore;
         public List<Card> userHand = new List<Card>();
         public List<Card> dealerHand = new List<Card>();
-        public IUserInput userInput;
-        public Deck deck = new Deck();
-        public Output output = new Output(); 
-        public Calculator calculator = new Calculator();
-        public User user = new User();
-        public Dealer dealer = new Dealer();
+        private IUserInput userInput;
+        private Deck deck = new Deck();
+        private Output output = new Output(); 
+        private Calculator calculator = new Calculator();
+        private User user = new User();
+        private Dealer dealer = new Dealer();
 
         public BlackjackGameplay(IUserInput userInput)
         {
